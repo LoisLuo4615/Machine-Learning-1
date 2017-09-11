@@ -1,3 +1,4 @@
+#将图像转换为测试向量
 def img2vector(filename):
     returnVect=zeros((1,1024))
     fr=open(filename)
