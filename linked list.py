@@ -67,7 +67,7 @@ class LinkList(object):                          #创建链表类
             p.next = q
 
 
-    def getitem(self,index):
+    def getitem(self,index):                         #获得链表中下标为index的元素值
         if self.is_empty():
             print ('Linklist is empty.')
             return
