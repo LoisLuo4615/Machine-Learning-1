@@ -6,18 +6,18 @@ class Node(object):                              #创建表结点类
         self.data = val
         self.next = p
 
-class LinkList(object):
+class LinkList(object):                          #创建链表类
     def __init__(self):
         self.head = 0
 
     def __getitem__(self, key):
 
         if self.is_empty():
-            print 'linklist is empty.'
+            print ('linklist is empty.')
             return
 
         elif key <0  or key > self.getlength():
-            print 'the given key is error'
+            print ('the given key is error')
             return
 
         else:
@@ -28,11 +28,11 @@ class LinkList(object):
     def __setitem__(self, key, value):
 
         if self.is_empty():
-            print 'linklist is empty.'
+            print ('linklist is empty.')
             return
 
         elif key <0  or key > self.getlength():
-            print 'the given key is error'
+            print ('the given key is error')
             return
 
         else:
@@ -101,12 +101,12 @@ class LinkList(object):
 
         else:
 
-            print 'target is not exist!'
+            print ('target is not exist!')
 
     def insert(self,index,item):
 
         if self.is_empty() or index<0 or index >self.getlength():
-            print 'Linklist is empty.'
+            print ('Linklist is empty.')
             return
 
         if index ==0:
@@ -131,7 +131,7 @@ class LinkList(object):
     def delete(self,index):
 
         if self.is_empty() or index<0 or index >self.getlength():
-            print 'Linklist is empty.'
+            print ('Linklist is empty.')
             return
 
         if index ==0:
@@ -153,7 +153,7 @@ class LinkList(object):
     def index(self,value):
 
         if self.is_empty():
-            print 'Linklist is empty.'
+            print ('Linklist is empty.')
             return
 
         p = self.head
@@ -170,16 +170,16 @@ class LinkList(object):
 
 l = LinkList()
 l.initlist([1,2,3,4,5])
-print l.getitem(4)
+print (l.getitem(4))
 l.append(6)
-print l.getitem(5)
+print (l.getitem(5))
 
 l.insert(4,40)
-print l.getitem(3)
-print l.getitem(4)
-print l.getitem(5)
+print (l.getitem(3))
+print (l.getitem(4))
+print (l.getitem(5))
 
 l.delete(5)
-print l.getitem(5)
+print (l.getitem(5))
 
 l.index(5)
