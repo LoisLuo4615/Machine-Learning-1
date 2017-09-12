@@ -39,7 +39,7 @@ class LinkList(object):                          #创建链表类
             p.next = node
             p = p.next
             
-    def getlength(self):
+    def getlength(self):                           #求链表的长度
         p =  self.head
         length = 0
         while p!=0:
