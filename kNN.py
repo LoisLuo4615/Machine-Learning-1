@@ -1,3 +1,24 @@
+import numpy
+import operator
+from os import listdir
+
+#inX是所要测试的向量  
+#dataSet是训练样本集，一行对应一个样本。dataSet对应的标签向量为labels  
+#k是所选的最近邻数目  
+def classify0(inX, dataSet, labels, k):  
+    dataSetSize = dataSet.shape[0]                       #shape[0]得出dataSet的行数，即样本个数  
+    diffMat = tile(inX, (dataSetSize,1)) - dataSet       #tile(A,(m,n))将数组A作为元素构造m行n列的数组  
+    sqDiffMat = diffMat**2  
+    sqDistances = sqDiffMat.sum(axis=1)                  #array.sum(axis=1)按行累加，axis=0为按列累加  
+    distances = sqDistances**0.5  
+    sortedDistIndicies = distances.argsort()             #array.argsort()，得到每个元素的排序序号  
+    classCount={}                                        #sortedDistIndicies[0]表示排序后排在第一个的那个数在原来数组中的下标  
+    for i in range(k):  
+        voteIlabel = labels[sortedDistIndicies[i]]  
+        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1 #get(key,x)从字典中获取key对应的value，没有key的话返回0  
+    sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True) #sorted()函数，按照第二个元素即value的次序逆向（reverse=True）排序  
+    return sortedClassCount[0][0]</span>
+
 #将图像转换为测试向量：把一个32x32的二进制图像矩阵转换为1x1024的向量
 def img2vector(filename):
     returnVect=zeros((1,1024))
@@ -36,21 +57,3 @@ def handwritingClassTest():
         if (classifierResult != classNumStr): errorCount += 1.0  
     print ("\nthe total number of errors is: %d" % errorCount)  
     print ("\nthe total error rate is: %f" % (errorCount/float(mTest))</span>)
-
-    
-#inX是所要测试的向量  
-#dataSet是训练样本集，一行对应一个样本。dataSet对应的标签向量为labels  
-#k是所选的最近邻数目  
-def classify0(inX, dataSet, labels, k):  
-    dataSetSize = dataSet.shape[0]                       #shape[0]得出dataSet的行数，即样本个数  
-    diffMat = tile(inX, (dataSetSize,1)) - dataSet       #tile(A,(m,n))将数组A作为元素构造m行n列的数组  
-    sqDiffMat = diffMat**2  
-    sqDistances = sqDiffMat.sum(axis=1)                  #array.sum(axis=1)按行累加，axis=0为按列累加  
-    distances = sqDistances**0.5  
-    sortedDistIndicies = distances.argsort()             #array.argsort()，得到每个元素的排序序号  
-    classCount={}                                        #sortedDistIndicies[0]表示排序后排在第一个的那个数在原来数组中的下标  
-    for i in range(k):  
-        voteIlabel = labels[sortedDistIndicies[i]]  
-        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1 #get(key,x)从字典中获取key对应的value，没有key的话返回0  
-    sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True) #sorted()函数，按照第二个元素即value的次序逆向（reverse=True）排序  
-    return sortedClassCount[0][0]</span>
