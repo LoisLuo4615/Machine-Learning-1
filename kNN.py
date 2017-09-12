@@ -58,3 +58,16 @@ def handwritingClassTest():
         if (classifierResult != classNumStr): errorCount += 1.0  
     print ("\nthe total number of errors is: %d" % errorCount)  
     print ("\nthe total error rate is: %f" % (errorCount/float(mTest))</span>)
+
+    
+    
+#数值归一化
+def autoNorm(dataSet):
+    minVals=dataSet.min(0)                                #返回一个数组，数组中每个数都是它所在列的所有数的最小值                       
+    maxVals=dataSet.max(0)                                #返回一个数组，数组中每个数都是它所在列的所有数的最大值
+    ranges=maxVals-minVals
+    normDataSet=zeros(shape(datasSet))
+    m=dataSet.shape[0]                                    #m为dataSet的行向量
+    normDataSet=dataSet-tile(minVals,(m,1))               #将数组minVal作为元素构造出m行1列的数组
+    normDataSet=normDataSet/tile(ranges,(m,1))            #归一化数值newValue=(oldValue-min)/(max-min)
+    return normDataSet,ranges,minVals
