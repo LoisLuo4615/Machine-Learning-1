@@ -69,7 +69,7 @@ class LinkList(object):                          #创建链表类
 
     def getitem(self,index):
         if self.is_empty():
-            print 'Linklist is empty.'
+            print ('Linklist is empty.')
             return
         j = 0
         p = self.head
