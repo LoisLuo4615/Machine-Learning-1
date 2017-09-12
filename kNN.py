@@ -60,7 +60,7 @@ def handwritingClassTest():
     print ("\nthe total error rate is: %f" % (errorCount/float(mTest))</span>)
 
     
-    
+  
 #数值归一化               上例中用不到该函数，但是对于数量级差别比较大，各个特征同等重要时，必须将数值归一化
 def autoNorm(dataSet):
     minVals=dataSet.min(0)                                #返回一个数组，数组中每个数都是它所在列的所有数的最小值                       
