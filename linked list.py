@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class Node(object):
+class Node(object):                              #创建表结点类
     def __init__(self,val,p=0):
         self.data = val
         self.next = p
