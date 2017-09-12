@@ -1,3 +1,4 @@
+#kNN算法实现手写数字识别
 import numpy
 import operator
 from os import listdir
