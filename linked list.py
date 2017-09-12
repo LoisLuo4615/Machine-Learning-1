@@ -10,7 +10,7 @@ class LinkList(object):                          #创建链表类
     def __init__(self):
         self.head = 0
 
-    def __getitem__(self, key):                  #得到一个链表
+    def __getitem__(self, key):                  #得到一个链表元素的值
         if self.is_empty():
             print ('linklist is empty.')
             return
@@ -56,7 +56,7 @@ class LinkList(object):                          #创建链表类
     def clear(self):
         self.head = 0
 
-    def append(self,item):
+    def append(self,item):                          #增加链表元素
         q = Node(item)
         if self.head ==0:
             self.head = q
@@ -81,7 +81,7 @@ class LinkList(object):                          #创建链表类
         else:
             print ('target is not exist!')
 
-    def insert(self,index,item):
+    def insert(self,index,item):                                   #插入元素
         if self.is_empty() or index<0 or index >self.getlength():
             print ('Linklist is empty.')
             return
@@ -100,7 +100,7 @@ class LinkList(object):                          #创建链表类
             post.next = q
             q.next = p
 
-    def delete(self,index):
+    def delete(self,index):                                       #删除元素
         if self.is_empty() or index<0 or index >self.getlength():
             print ('Linklist is empty.')
             return
@@ -117,7 +117,7 @@ class LinkList(object):                          #创建链表类
         if index ==j:
             post.next = p.next
 
-    def index(self,value):
+    def index(self,value):                                #得到链表元素的下标
         if self.is_empty():
             print ('Linklist is empty.')
             return
