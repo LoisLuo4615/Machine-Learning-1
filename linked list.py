@@ -47,7 +47,7 @@ class LinkList(object):                          #创建链表类
             p = p.next
         return length
     
-    def is_empty(self):
+    def is_empty(self):                             #判断链表是否为空
         if self.getlength() ==0:
             return True
         else:
