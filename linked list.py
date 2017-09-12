@@ -56,7 +56,7 @@ class LinkList(object):                          #创建链表类
     def clear(self):
         self.head = 0
 
-    def append(self,item):                          #增加链表元素
+    def append(self,item):                          #后端操作，插入元素
         q = Node(item)
         if self.head ==0:
             self.head = q
